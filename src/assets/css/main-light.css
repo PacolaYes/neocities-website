@@ -1,0 +1,50 @@
+
+.light a {
+    color: rgb(61, 126, 180);
+}
+
+.light a:hover {
+    color: rgb(180, 109, 61);
+}
+
+.light body {
+    /*background: #fcee9d;*/
+    background-image: url("../img/bgs/marble.png"), url("../img/bgs/indoors\ marble.png");
+    background-size: auto 100vh, auto 200vh;
+    background-repeat: repeat-x, repeat;
+}
+
+/*
+    stuff related to the
+    "window" stuff
+    i like how aero windows looks :P
+    and this is my cheap knockoff
+    since i didnt want it to be 1:1 windows 7 :D
+*/
+
+.light .glass {
+    /* From https://css.glass */
+    background: linear-gradient(
+        rgba(16, 244, 203, 0.25),
+        rgba(37, 153, 132, 0.25)
+    );
+    /*box-shadow: 0 4px 30px rgba(0, 0, 0, 0.7);*/
+    box-shadow: 0 0 8px 4px rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(16, 244, 203, 0.3);
+}
+
+.light .glassTitle {
+    margin: 2px 15px;
+    text-shadow: 0 0 0.4em white
+}
+
+.light .mainWindowContent {
+    background-color: white;
+}
+
+/*
+    stuff related to the main page!
+*/
+

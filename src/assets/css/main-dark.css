@@ -1,0 +1,60 @@
+
+/*
+    css stuff:
+    background-image = the img used in the background!!
+    font-family = the font used!!
+*/
+
+.dark a {
+    color: rgb(82, 177, 255);
+}
+
+.dark a:hover {
+    color: rgb(255, 151, 82);
+}
+
+.dark body {
+    background: url("../img/bgs/star light.png"), linear-gradient(black, black);
+    background-size: auto 100vh;
+    background-repeat: repeat-x, repeat;
+    background-position: bottom;
+    color: white;
+}
+
+/*
+    stuff related to the
+    "window" stuff
+    i like how aero windows looks :P
+    and this is my cheap knockoff
+    since i didnt want it to be 1:1 windows 7 :D
+*/
+
+.dark .glass {
+    /* From https://css.glass */
+    background: linear-gradient(
+        rgba(1, 28, 179, 0.25),
+        rgba(18, 36, 136, 0.25)
+    );
+    /*box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);*/
+    box-shadow: 0 0 8px 4px rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(1, 28, 179, 0.3);
+}
+
+.dark .glassTitle {
+    margin: 2px 15px;
+    text-shadow: 0 0 0.4em black
+}
+
+.dark .mainWindowContent {
+    background-color: black;
+}
+
+/*
+    stuff related to the main page!
+*/
+
+.dark #insertChar {
+    filter: invert(1);
+}
