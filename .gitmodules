@@ -1,0 +1,3 @@
+[submodule "libs/jshashes"]
+	path = libs/jshashes
+	url = https://github.com/h2non/jshashes.git
