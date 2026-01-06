@@ -2,7 +2,7 @@
 
 ## should you use this?
 
-not really, i'm pretty sure something like [nob](https://github.com/nshebang/nob/), or even some other one that i don't know the existence of would be more of use to you than this thing i did
+not really, i'm pretty sure something like [nob](https://github.com/nshebang/nob/) (haven't used it, dunno if its safe :P), or even some other one that i don't know the existence of would be more of use to you than this thing i did
 
 ## "why'd u do it then"
 
