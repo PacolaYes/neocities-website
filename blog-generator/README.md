@@ -4,7 +4,7 @@
 
 not really, i'm pretty sure something like [nob](https://github.com/nshebang/nob/), or even some other one that i don't know the existence of would be more of use to you than this thing i did
 
-## why'd u do it then
+## "why'd u do it then"
 
 i wanted to be just like Wario in hit WarioWare game WarioWare: D.I.Y. and make something on my own (i think wario does that, i didn't play any warioware games), even if its not the best option out there!!
 
