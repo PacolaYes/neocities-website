@@ -1,58 +1,19 @@
 
 # vanilla python stuff
-# 1. idk
 import argparse
 import os
+from json import dumps
 from sys import exit
-
-# 2. stuff used in the markdown parser
-import re
-import datetime
-
-# 3. stuff used in the html stuff
 from pathlib import Path
+from datetime import datetime
 
 # markdown
 import markdown
-from markdown.extensions import Extension
-from markdown.preprocessors import Preprocessor
+from modules.markdown_extension import blogExtension
 
 # the html library
 from bs4 import BeautifulSoup, Comment
 from bs4.formatter import HTMLFormatter
-
-class processBlogStuff(Preprocessor):
-    def run(self, lines): # pretty much just the example modified :P
-        new_lines = []
-
-        # probably not the best code buuuut, it wooooorks :D
-        title_re = re.compile(r"(\[BlogTitle\] )(.*)")
-        date_re = re.compile(r"(\[BlogDateTime\] )(.*)")
-        for line in lines:
-            title = title_re.search(line)
-            date = date_re.search(line)
-            
-
-            if title and not self.md.title:
-                self.md.title = title[2]
-                continue
-
-            if date and not self.md.datetime:
-                self.md.datetime = datetime.datetime.strptime(date[2], "%d/%m/%Y %H:%M")
-                continue
-
-            new_lines.append(line)
-        return new_lines
-
-class blogExtension(Extension): # maybe i should just use the meta extension outright????? def would giv out more stuff 2 do
-    def extendMarkdown(self, md):
-        md.registerExtension(self)
-        self.md = md
-        md.preprocessors.register(processBlogStuff(md), 'blog-parse', 27)
-
-    def reset(self) -> None:
-        self.md.title = None
-        self.md.datetime = None
 
 def getMarkdown(path: str|None):
     if path is None:
@@ -98,11 +59,60 @@ def mdToHTML(files: list[Path], template: Path):
 
         html_files.append({
             "filename": Path(file.stem + ".html"),
+            "metadata": {
+                "title": md.title,
+                "date": md.datetime
+            },
             "html": template_parser.prettify(formatter=formatter) # not the most ideal (for me), but it's better than no indentation at all!
         })
         print("Parsed entry: " + file.name)
 
     return html_files
+
+def getDateIndex(coollist: list, value):
+    found_index = None
+    for index, val in enumerate(coollist):
+        if val.get("num") == value:
+            found_index = index
+            break
+    return found_index
+
+def getJSON(html_list: list):
+    json_list = []
+    for html in html_list:
+        date: datetime = html["metadata"]["date"]
+
+        yearIndex = getDateIndex(json_list, date.year)
+        if yearIndex is None:
+            json_list.append({
+                "num": date.year,
+                "list": []
+            })
+            yearIndex = len(json_list) - 1
+        yearList = json_list[yearIndex]["list"]
+        
+        monthIndex = getDateIndex(yearList, date.month)
+        if monthIndex is None:
+            yearList.append({
+                "num": date.month,
+                "list": []
+            })
+            monthIndex = len(yearList) - 1
+        monthList = yearList[monthIndex]["list"]
+        
+        monthList.append({
+            "name": html["metadata"]["title"],
+            "file": str(html["filename"]),
+            "timestamp": date.timestamp()
+        })
+    
+    json_list.sort(key=lambda year: year["num"])
+    for year in json_list:
+        year["list"].sort(key=lambda month: month["num"])
+        for month in year["list"]:
+            month["list"].sort(key=lambda day: day.pop("timestamp"))
+    
+    return dumps(json_list, sort_keys=True, indent=4)
 
 def main():
     parser = argparse.ArgumentParser(
@@ -134,6 +144,9 @@ def main():
         with open(path, "w", encoding="utf-8") as output_file:
             output_file.write(file["html"])
         print("Entry written to '" + path + "'!")
+    
+    with open(output.joinpath("blog-list.json"), "w", encoding="utf-8") as output_file:
+        output_file.write(getJSON(html_files))
 
 if __name__ == '__main__':
     exit(main())
