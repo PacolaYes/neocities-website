@@ -80,7 +80,7 @@ def getJSON(html_list: list):
         json_list.append({
             "file": str(html["filename"]),
             "name": html["metadata"]["title"],
-            "date": date.strftime("%d/%m/%Y"),
+            "date": date.strftime("%Y-%m-%d"),
             "tags": html["metadata"]["tags"]
         })
         date.strftime("%d/%m/%Y")
