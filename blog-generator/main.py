@@ -44,8 +44,10 @@ def mdToHTML(files: list[Path], template: Path):
         with open(file, "r", encoding="utf-8") as input_file:
             text = input_file.read()
         html = BeautifulSoup(md.reset().convert(text), "html.parser")
-        if template_parser.title:
-            template_parser.title.string = md.title
+
+        if template_parser.title \
+        and md.blog_stuff.get("title"):
+            template_parser.title.string = md.blog_stuff["title"]
         
         found_comment = False
         for comment in template_parser.find_all(string=lambda text: isinstance(text, Comment)):
@@ -60,8 +62,9 @@ def mdToHTML(files: list[Path], template: Path):
         html_files.append({
             "filename": Path(file.stem + ".html"),
             "metadata": {
-                "title": md.title,
-                "date": md.datetime
+                "title": md.blog_stuff.get("title"),
+                "date": md.blog_stuff.get("datetime"),
+                "tags": md.blog_stuff.get("tags")
             },
             "html": template_parser.prettify(formatter=formatter) # not the most ideal (for me), but it's better than no indentation at all!
         })
@@ -69,48 +72,18 @@ def mdToHTML(files: list[Path], template: Path):
 
     return html_files
 
-def getDateIndex(coollist: list, value):
-    found_index = None
-    for index, val in enumerate(coollist):
-        if val.get("num") == value:
-            found_index = index
-            break
-    return found_index
-
 def getJSON(html_list: list):
     json_list = []
     for html in html_list:
         date: datetime = html["metadata"]["date"]
 
-        yearIndex = getDateIndex(json_list, date.year)
-        if yearIndex is None:
-            json_list.append({
-                "num": date.year,
-                "list": []
-            })
-            yearIndex = len(json_list) - 1
-        yearList = json_list[yearIndex]["list"]
-        
-        monthIndex = getDateIndex(yearList, date.month)
-        if monthIndex is None:
-            yearList.append({
-                "num": date.month,
-                "list": []
-            })
-            monthIndex = len(yearList) - 1
-        monthList = yearList[monthIndex]["list"]
-        
-        monthList.append({
-            "name": html["metadata"]["title"],
+        json_list.append({
             "file": str(html["filename"]),
-            "timestamp": date.timestamp()
+            "name": html["metadata"]["title"],
+            "date": date.strftime("%d/%m/%Y"),
+            "tags": html["metadata"]["tags"]
         })
-    
-    json_list.sort(key=lambda year: year["num"])
-    for year in json_list:
-        year["list"].sort(key=lambda month: month["num"])
-        for month in year["list"]:
-            month["list"].sort(key=lambda day: day.pop("timestamp"))
+        date.strftime("%d/%m/%Y")
     
     return dumps(json_list, sort_keys=True, indent=4)
 
