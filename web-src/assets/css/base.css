@@ -175,3 +175,13 @@ body {
 .imageDisplay p {
     margin-left: 5px;
 }
+
+.socialMedia_display {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.socialMedia_section {
+
+}
