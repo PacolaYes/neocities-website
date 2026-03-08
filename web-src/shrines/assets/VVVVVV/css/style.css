@@ -17,6 +17,9 @@
 body {
     font-size: 10px;
     font-family: SpaceStation;
+    -webkit-font-smoothing: none;
+    -moz-osx-font-smoothing: grayscale;
+    font-smooth: none;
 
     background-image: url("../img/bg.png");
     image-rendering: pixelated;
