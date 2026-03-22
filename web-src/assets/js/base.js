@@ -21,6 +21,7 @@
 var links = [
   ["home!", "index.html"],
   ["about me!", "aboutme.html"],
+  ["find me", "findme.html"],
   ["my projects", "projects.html"],
   ["blog thingie", "blogposts/blog-home.html"]
 ]
@@ -29,7 +30,6 @@ let self = document.currentScript
 
 function addLinks() {
   let linkDiv = document.getElementById("coolLinks");
-
   for (let i = 0; i < links.length; i++) {
     let link = links[i]
     let linkNode = document.createElement('a'); // is node even a good name for this??

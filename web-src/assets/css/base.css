@@ -16,8 +16,16 @@ a {
     transition: color .25s;
 }
 
+a img {
+    transition: transform .25s;
+}
+
 a:hover {
     text-decoration: underline;
+}
+
+a:hover img {
+    transform: scale(1.1);
 }
 
 ul {
@@ -45,6 +53,14 @@ h5 {
 
 h6 {
     font-size: 0.7em;
+}
+
+em, i {
+    font-style: italic;
+}
+
+strong {
+    font-weight: bold;
 }
 
 html {
@@ -132,6 +148,13 @@ body {
 
 .flexColumn {
     display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.inline_flexColumn {
+    display: inline-flex;
+    align-items: center;
     flex-direction: column;
 }
 
@@ -143,14 +166,6 @@ body {
     display: block;
 }
 
-#statuscafe-username {
-    margin-bottom: .5em;
-}
-
-#statuscafe-content {
-    margin-left: .25em;
-}
-
 /*
     stuff related to the projects page!
 */
@@ -158,6 +173,10 @@ body {
 #glassMain2TheSequel {
     width: 60%;
     margin: 0 15px;
+}
+
+#glassMain2TheSequel > div {
+    width: 100%;
 }
 
 /*
@@ -177,4 +196,41 @@ body {
 
 .imageDisplay p {
     margin-left: 5px;
+}
+
+/*
+    stuff related to the find me page !!
+*/
+
+.socialMedia_display {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: 8em;
+}
+
+.socialMedia_section {
+    display: inline-flex;
+    align-items: center;
+    flex-direction: column;
+
+    margin: 5em;
+}
+
+/*
+    stuff related to the funsies stuff !!!!!!!!!
+*/
+
+#betterthan-loading {
+    text-align: center;
+    padding: .5em 0 0;
+}
+
+.betterthan-results {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.betterthan-results > p {
+    display: inline-block;
 }
