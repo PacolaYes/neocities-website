@@ -47,6 +47,14 @@ h6 {
     font-size: 0.7em;
 }
 
+em, i {
+    font-style: italic;
+}
+
+strong {
+    font-weight: bold;
+}
+
 html {
     image-rendering: pixelated;
     image-rendering: -moz-crisp-edges;
@@ -132,6 +140,13 @@ body {
 
 .flexColumn {
     display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.inline_flexColumn {
+    display: inline-flex;
+    align-items: center;
     flex-direction: column;
 }
 
@@ -143,14 +158,6 @@ body {
     display: block;
 }
 
-#statuscafe-username {
-    margin-bottom: .5em;
-}
-
-#statuscafe-content {
-    margin-left: .25em;
-}
-
 /*
     stuff related to the projects page!
 */
@@ -158,6 +165,10 @@ body {
 #glassMain2TheSequel {
     width: 60%;
     margin: 0 15px;
+}
+
+#glassMain2TheSequel > div {
+    width: 100%;
 }
 
 /*
