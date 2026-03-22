@@ -119,6 +119,7 @@ function handleComparison() {
             }
         }
     }
+    document.title = `is ${x || "(X)"} better than ${y || "(Y)"}?`
 }
 
 var loadingNum = 0
