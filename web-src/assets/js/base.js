@@ -26,18 +26,17 @@ var links = [
 ]
 
 let self = document.currentScript
-let rootPath = self.getAttribute("data-rootPath") || "";
 
 function addLinks() {
   let linkDiv = document.getElementById("coolLinks");
-  let savedLang = getLocalStorageItem("savedLang", "english")
+
   for (let i = 0; i < links.length; i++) {
     let link = links[i]
     let linkNode = document.createElement('a'); // is node even a good name for this??
     let name = document.createTextNode(link[0]);
 
     linkNode.appendChild(name);
-    linkNode.href = rootPath + link[1]; // lonk
+    linkNode.href = "/" + link[1]; // lonk
     linkDiv.appendChild(linkNode);
   }
 }
