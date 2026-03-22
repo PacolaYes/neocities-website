@@ -128,9 +128,14 @@ function handleComparison() {
     if (x && y) {
         // https://ao.bloat.cat/questions/94037/convert-character-to-ascii-code-in-javascript#30887763
         // (insert og stack overflow thingie here)
-        let xSum = x.toLowerCase().split('').map(char => char.charCodeAt(0)).reduce((current, previous) => previous + current)
-        let ySum = y.toLowerCase().split('').map(char => char.charCodeAt(0)).reduce((current, previous) => previous + current)
-        let sum = xSum + ySum
+        let coolX = x.toLowerCase().trim()
+        let coolY = y.toLowerCase().trim()
+        let xSum = coolX.split('').map(char => char.charCodeAt(0)).reduce((current, previous) => previous + current)
+        let ySum = coolY.split('').map(char => char.charCodeAt(0)).reduce((current, previous) => previous + current)
+        let sum = xSum - ySum
+        if (sum < 0) {
+            sum = -sum + 1
+        }
 
         if (xSum == ySum) {
             betterThan = "same"
