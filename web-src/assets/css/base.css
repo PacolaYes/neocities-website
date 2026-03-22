@@ -52,12 +52,15 @@ html {
     image-rendering: -moz-crisp-edges;
     image-rendering: crisp-edges;
     font-family: TTYDfont;
+
+    min-width: 100%;
+    min-height: 100%;
 }
 
 body {
     box-sizing: border-box;
     padding: 15px;
-    min-height: 100vh;
+    height: 100%;
     background-attachment: scroll fixed;
     transition: color .4s; /* i think it looks nice seeing the colors change when u change themes :D */
 }
