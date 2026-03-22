@@ -34,8 +34,6 @@
         <p class="glassTitle">is <span id="titleX">x</span> better than <span id="titleY">y</span>?</p>
 
         <div class="mainWindowContent">
-            <p></p>
-
             <form id="betterthan-form">
                 <label for="inputX">is </label>
                 <span class="inline_flexColumn">
@@ -52,9 +50,23 @@
                 <input type="submit" value="Check">
             </form>
 
-            <p id="betterthan-result">no.</p>
-            <img src="" alt="" id="betterthan-Ximg" width="128" height="128">
-            <img src="" alt="" id="betterthan-Yimg" width="128" height="128">
+            <p id="betterthan-loading" style="display: none;">Computing</p>
+
+            <div class="betterthan-results" style="display: none;" id="betterthan-resultDiv">
+              <p id="betterthan-result">no.</p>
+
+              <span class="inline_flexColumn">
+                <img src="" alt="" id="betterthan-Ximg" width="128" height="128">
+                <p id="betterthan-Xdesc">placeholder</p>
+              </span>
+
+              <p id="betterthan-resultp2">is NOT better than</p>
+
+              <span class="inline_flexColumn">
+                <img src="" alt="" id="betterthan-Yimg" width="128" height="128">
+                <p id="betterthan-Ydesc">they call me sonic, cuz i'm the faster than sound, and keep on jumpin' around, blue hedgehog sonic, with incredible speed, i'm movin' my feet</p>
+              </span>
+            </div>
         </div>
     </main>
   </body>

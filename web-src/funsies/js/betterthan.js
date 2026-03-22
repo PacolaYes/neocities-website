@@ -1,5 +1,8 @@
 const urlParams = new URLSearchParams(window.location.search);
 
+// string .getCharAt for the comparisons !!
+
+var betterThan = null
 var x = urlParams.get("is") || ""
 var y = urlParams.get("betterthan") || ""
 x = x && x.trim()
@@ -66,7 +69,6 @@ async function getWikipediaImage(search) {
 
             for (const key in imageInfo) {
                 let value = imageInfo[key]
-                console.log(value)
                 if (value["imageinfo"] && value["imageinfo"][0]["url"]) {
                     return value["imageinfo"][0]["url"]
                 }
@@ -75,32 +77,70 @@ async function getWikipediaImage(search) {
     } catch (error) {
         console.error(error.message)
     }
+
+    return "/assets/img/imgnotfound.png"
 }
 
 function handleComparison() {
     if (x) {
         const titleX = document.getElementById("titleX")
         const inputX = document.getElementById("inputX")
+        const descX = document.getElementById("betterthan-Xdesc")
 
         titleX.innerText = x
         inputX.value = x
+        descX.innerText = x
     }
 
     if (y) {
         const titleY = document.getElementById("titleY")
         const inputY = document.getElementById("inputY")
+        const descY = document.getElementById("betterthan-Ydesc")
 
         titleY.innerText = y
         inputY.value = y
+        descY.innerText = y
     }
     
     if (x && y) {
-        alert("TODO: handle out comparision :PP")
+        // https://ao.bloat.cat/questions/94037/convert-character-to-ascii-code-in-javascript#30887763
+        // (insert og stack overflow thingie here)
+        let xSum = x.toLowerCase().split('').map(char => char.charCodeAt(0)).reduce((current, previous) => previous + current)
+        let ySum = y.toLowerCase().split('').map(char => char.charCodeAt(0)).reduce((current, previous) => previous + current)
+        let sum = xSum + ySum
+
+        if (xSum == ySum) {
+            betterThan = "same"
+        } else {
+            if (sum % 2 == 0) {
+                betterThan = true
+            } else {
+                betterThan = false
+            }
+        }
+    }
+}
+
+var loadingNum = 0
+function handleLoading() {
+    const loading = document.getElementById("betterthan-loading")
+    loading.innerText = "Computing" + ".".repeat(loadingNum)
+
+    if (loadingNum++ >= 3) {
+        loadingNum = 0
     }
 }
 
 async function betterthan_onLoad() {
     handleComparison()
+
+    if (betterThan != null) {
+        const loading = document.getElementById("betterthan-loading")
+        loading.style.display = null
+
+        handleLoading()
+        var loadingID = setInterval(handleLoading, 1000)
+    }
 
     const inputX = document.getElementById("inputX")
     const inputY = document.getElementById("inputY")
@@ -116,17 +156,43 @@ async function betterthan_onLoad() {
     inputX.placeholder = placeholders["query"]["random"][0]["title"]
     inputY.placeholder = placeholders["query"]["random"][1]["title"]
 
-    if (x) {
-        let imgURL = await getWikipediaImage(x)
-        let imgX = document.getElementById("betterthan-Ximg")
-        imgX.src = imgURL
-    }
+    if (betterThan == null) { return }
 
-    if (y) {
-        let imgURL = await getWikipediaImage(y)
-        let imgY = document.getElementById("betterthan-Yimg")
-        imgY.src = imgURL
-    }
+    let imgXURL = await getWikipediaImage(x)
+    let imgX = document.getElementById("betterthan-Ximg")
+    imgX.src = imgXURL
+    
+    let imgYURL = await getWikipediaImage(y)
+    let imgY = document.getElementById("betterthan-Yimg")
+    imgY.src = imgYURL
+
+    // artificial loading baybee
+    setTimeout(() => {
+        const result1 = document.getElementById("betterthan-result")
+        const result2 = document.getElementById("betterthan-resultp2")
+        switch (betterThan) {
+            case true:
+                result1.innerText = "Yes!"
+                result2.innerText = "IS better than"
+                break
+            case false:
+                result1.innerText = "No."
+                result2.innerText = "IS NOT better than"
+                break
+            case "same":
+                result1.innerText = "Of course not, as"
+                result2.innerText = "is the same as"
+                break
+        }
+
+        const resultDiv = document.getElementById("betterthan-resultDiv")
+        resultDiv.style.display = null
+
+        const loading = document.getElementById("betterthan-loading")
+        loading.style.display = "none"
+        
+        window.clearInterval(loadingID)
+    }, 4000)
 }
 
 document.addEventListener("DOMContentLoaded", betterthan_onLoad, false);

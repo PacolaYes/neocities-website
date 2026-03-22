@@ -190,6 +190,10 @@ body {
     margin-left: 5px;
 }
 
+/*
+    stuff related to the find me page !!
+*/
+
 .socialMedia_display {
     display: flex;
     align-items: center;
@@ -198,4 +202,23 @@ body {
 
 .socialMedia_section {
 
+}
+
+/*
+    stuff related to the funsies stuff !!!!!!!!!
+*/
+
+#betterthan-loading {
+    text-align: center;
+    padding: .5em 0 0;
+}
+
+.betterthan-results {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.betterthan-results > p {
+    display: inline-block;
 }
