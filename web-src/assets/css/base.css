@@ -16,8 +16,16 @@ a {
     transition: color .25s;
 }
 
+a img {
+    transition: transform .25s;
+}
+
 a:hover {
     text-decoration: underline;
+}
+
+a:hover img {
+    transform: scale(1.1);
 }
 
 ul {
@@ -195,13 +203,17 @@ body {
 */
 
 .socialMedia_display {
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: 8em;
 }
 
 .socialMedia_section {
+    display: inline-flex;
+    align-items: center;
+    flex-direction: column;
 
+    margin: 5em;
 }
 
 /*
