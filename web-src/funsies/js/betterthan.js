@@ -3,6 +3,26 @@ const urlParams = new URLSearchParams(window.location.search);
 // string .getCharAt for the comparisons !!
 
 var betterThan = null
+var xySum = 0
+const responses = {
+    yes: [
+        ["Of Course!", "Yes!", "Duh.", "Affirmative!", "Absolutely!", "Yep.", "Yeah."],
+        [
+            ["IS better than", "!"],
+            ["IS OBVIOUSLY better than"],
+            ["IS CLEARLY better than", "!!"],
+            ["is SO GOOD that", "stood no chance."]]
+    ],
+    no: [
+        ["No.", "Nuh uh.", "No chance!", "No way!", "Negative.", "Nope.", "Nah."],
+        [
+            ["IS NOT better than"],
+            ["IS OBVIOUSLY WORSE than"],
+            ["DIDN'T EVEN TRY to be better than", "!"],
+            ["IS SO BAD that", "didn't need to try."]
+        ]
+    ]
+}
 var x = urlParams.get("is") || ""
 var y = urlParams.get("betterthan") || ""
 x = x && x.trim()
@@ -132,15 +152,18 @@ function handleComparison() {
         let coolY = y.toLowerCase().trim()
         let xSum = coolX.split('').map(char => char.charCodeAt(0)).reduce((current, previous) => previous + current)
         let ySum = coolY.split('').map(char => char.charCodeAt(0)).reduce((current, previous) => previous + current)
-        let sum = xSum - ySum
-        if (sum < 0) {
-            sum = -sum + 1
+        console.log(xSum)
+        console.log(ySum)
+        xySum = xSum - ySum
+        if (xySum < 0) {
+            xySum = -xySum + 1
         }
+        console.log(xySum)
 
         if (xSum == ySum) {
             betterThan = "same"
         } else {
-            if (sum % 2 == 0) {
+            if (xySum % 2 == 0) {
                 betterThan = true
             } else {
                 betterThan = false
@@ -193,19 +216,31 @@ async function betterthan_onLoad() {
     setTimeout(() => {
         const result1 = document.getElementById("betterthan-result")
         const result2 = document.getElementById("betterthan-resultp2")
+        const result3 = document.getElementById("betterthan-resultp3")
+        let response
         switch (betterThan) {
             case true:
-                result1.innerText = "Yes!"
-                result2.innerText = "IS better than"
+                response = responses["yes"]
+
+                result1.innerText = response[0][Math.trunc(Math.random() * response[0].length)]
+                result2.innerText = response[1][xySum % response[1].length][0]
+                result3.innerText = response[1][xySum % response[1].length][1]
                 break
             case false:
-                result1.innerText = "No."
-                result2.innerText = "IS NOT better than"
+                response = responses["no"]
+
+                result1.innerText = response[0][Math.trunc(Math.random() * response[0].length)]
+                result2.innerText = response[1][xySum % response[1].length][0]
+                result3.innerText = response[1][xySum % response[1].length][1]
                 break
             case "same":
                 result1.innerText = "Of course not, as"
                 result2.innerText = "is the same as"
                 break
+        }
+
+        if (result3.innerText && result3.innerText != "undefined") {
+            result3.style.display = null
         }
 
         const resultDiv = document.getElementById("betterthan-resultDiv")
