@@ -220,6 +220,20 @@ body {
     stuff related to the funsies stuff !!!!!!!!!
 */
 
+#betterthan-form {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+#betterthan-form > div {
+    padding: .5em 0;
+}
+
+#betterthan-form > input {
+    width: 8em;
+}
+
 #betterthan-loading {
     text-align: center;
     padding: .5em 0 0;
@@ -229,6 +243,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-evenly;
+    padding: .5em 0 0;
 }
 
 .betterthan-results > p {
