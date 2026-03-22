@@ -220,6 +220,11 @@ body {
     stuff related to the funsies stuff !!!!!!!!!
 */
 
+#glassMain3WeGotATrilogyNow {
+    width: 60%;
+    margin: 0 15px;
+}
+
 #betterthan-form {
     display: flex;
     align-items: center;
