@@ -221,6 +221,7 @@ body {
 */
 
 #glassMain3WeGotATrilogyNow {
+    min-width: max-content;
     width: 60%;
     margin: 0 15px;
 }
