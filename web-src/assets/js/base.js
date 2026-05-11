@@ -13,20 +13,22 @@
 /*
   link template:
   [
-    text; string; Text to be displayed in the page,
-    link; string; Link to the page to be redirected to.
+    text; string; Text to be displayed in the page;
+    link; string; Link to the page to be redirected to;
+    translationID; string; ID used for translations.
   ]
 */
 
 var links = [
-  ["home!", "index.html"],
-  ["about me!", "aboutme.html"],
-  ["find me", "findme.html"],
-  ["my projects", "projects.html"],
-  ["blog thingie", "blogposts/blog-home.html"]
+  ["home!", "index.html", "home"],
+  ["about me!", "aboutme.html", "about-me"],
+  ["find me", "findme.html", "find-me"],
+  ["my projects", "projects.html", "projects"],
+  ["blog thingie", "blogposts/blog-home.html", "blog-home"]
 ]
 
 let self = document.currentScript
+const rootPath = self && (self.getAttribute("data-root") || "./") || "/" // so people just using file:// can also access stuff (and github pages)
 
 function addLinks() {
   let linkDiv = document.getElementById("coolLinks");
@@ -36,7 +38,8 @@ function addLinks() {
     let name = document.createTextNode(link[0]);
 
     linkNode.appendChild(name);
-    linkNode.href = "/" + link[1]; // lonk
+    linkNode.href = rootPath + link[1]; // lonk
+    linkNode.setAttribute("data-translationID", link[2]);
     linkDiv.appendChild(linkNode);
   }
 }

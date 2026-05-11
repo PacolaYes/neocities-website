@@ -236,6 +236,7 @@ async function betterthan_onLoad() {
             case "same":
                 result1.innerText = "Of course not, as"
                 result2.innerText = "is the same as"
+                result3.innerText = "undefined"
                 break
         }
 

@@ -1,0 +1,133 @@
+{
+    "english": {
+        "lang": "en",
+        "mainWindow": {
+            "title": "main page",
+            "content": [
+                "hey! welcom 2 my website!!",
+                "sonic going like \"hii person :D\"",
+                "here, in this corner of da internet",
+                "you're able to find stuff i do, and stuff i write",
+                "i'm still workin' on it though (sometimes) :P",
+                "make sure to check out the other pages though!!",
+                "if u want to do so, atleast",
+                "MOBILE DEVICES BEWARE!!",
+                "the website could end up biting you D:",
+                "atleast so i've been told!"
+            ]
+        },
+
+        "guestbook": [
+            "oh yeah, here's my ",
+            "guestbook",
+            "!!"
+        ],
+
+        "characterWindow": {
+            "title": "my character",
+            "content": [
+                "insert char here :)"
+            ]
+        },
+
+        "pacThing": {
+            "title": "pac thing of the time",
+            "content": [
+                "youshould play VVVVVV",
+                "it's very cool"
+            ]
+        },
+
+		"aboutme": {
+			"mainWindow": {
+				"title": "about me :D",
+				"content": [
+					"i'm pacola, but u can call me just pac too!",
+          "i go by she/her (transfem!), i like sonic, programming, i think",
+          "idk much to say about me, really",
+          "what do i do with my life?",
+          "nothing!! ...that's really useful",
+          "other than that, i've:",
+          "... did i mention i like sonic???"
+				]
+			},
+			"aboutmeList": {
+				"content": [
+					"made some stupid lil' ass srb2 mods, ya can find some of 'em in the projects page!",
+					"got 2 WRs in <a>Sonic Blast</a> (both sonic categories!), which i'm really proud of :D",
+					"some art, nothing fancy",
+					"some code, sometimes, never said it was good",
+					"procastinated a lot"
+				]
+			}
+		},
+
+		"projects-temp": {
+			"glassMain2TheSequel": {
+				"title": "da (srb2) projects",
+				"content": [
+					"some other mods can be found at my <a>github</a> too, though they may be either abandoned or just unfinished :P"
+				]
+			},
+
+			"blastHUDIMG": {
+				"content": [
+					"gif showcasing Sonic Blast's title card in SRB2"
+				]
+			},
+			"blastHUDContent": {
+				"content": [
+					"<h2>Sonic Blast HUD</h2>",
+					"A simple looking mod, replaces SRB2's in-game hud with the one seen in Sonic Blast."
+				]
+			},
+
+			"sunkyIMG": {
+				"content": [
+					"gif showcasing Sunky falling off an edge in Greenflower Zone act 1"
+				]
+			},
+			"sunkyContent": {
+				"content": [
+					"<h2>Sunky</h2>",
+					"adds Sunky, current version is supposed to be as accurate as i could to Sunky the Game, may get an update one day, or so i hope!"
+				]
+			},
+
+			"smwLuigiIMG": {
+				"content": [
+					"gif showcasing SMW Luigi spin-jumping, running and sliding"
+				]
+			},
+			"smwLuigiContent": {
+				"content": [
+					"<h2>SMW Luigi</h2>",
+					"aims to add Luigi and some other stuff from Super Mario World.",
+          "Still being made, sometimes. But you can get some builds, sometimes too."
+				]
+			}
+		},
+
+		"blog-home-temp": {
+			"mainWindow": {
+				"title": "blogs!!",
+				"content": [
+					"here's where i do the \"blog\" stuff",
+          "not sure if it's actually a blog, i'd call it something like:",
+          "\"place where i may or may not sometimes write something but most of the time its probably gonna be a may not since im probably not gonna write it but it may happen maybe\"",
+          "not sure what else to write here, check the right thing for the blogs",
+          "if there's any :P"
+				]
+			},
+			"blogList": {
+				"title": "listed blogs"
+			}
+		},
+
+        "home": "home!",
+        "about-me": "about me!",
+        "find-me": "find me",
+        "projects": "my projects",
+        "blog-home": "blog thingie"
+	}
+}
