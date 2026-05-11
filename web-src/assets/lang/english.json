@@ -121,6 +121,29 @@
         ],
         "betterthan-is": "is ",
         "betterthan-betterthan": "better than ",
+        "betterthan-responses": {
+            "yes": [
+                ["Of Course!", "Yes!", "Duh.", "Affirmative!", "Absolutely!", "Yep.", "Yeah."],
+                [
+                    ["IS better than", "!"],
+                    ["IS OBVIOUSLY better than"],
+                    ["IS CLEARLY better than", "!!"],
+                    ["is SO GOOD that", "stood no chance."]]
+            ],
+            "no": [
+                ["No.", "Nuh uh.", "No chance!", "No way!", "Negative.", "Nope.", "Nah."],
+                [
+                    ["IS NOT better than"],
+                    ["IS OBVIOUSLY WORSE than"],
+                    ["DIDN'T EVEN TRY to be better than", "!"],
+                    ["IS SO BAD that", "didn't need to try."]
+                ]
+            ],
+            "same": [
+                ["Of course not, as"],
+                ["is the same as"]
+            ]
+        },
 
 		"blog-homeTitle": "blogs!!",
         "blog-homeContent": [

@@ -121,6 +121,29 @@
         ],
         "betterthan-is": "seria ",
         "betterthan-betterthan": "melhor que ",
+        "betterthan-responses": {
+            "yes": [
+                ["Claro que sim!", "Sim!", "Duh.", "Óbvio!", "Absolutamente!", "É.", "Isso aí."],
+                [
+                    ["É melhor que", "!"],
+                    ["É OBVIAMENTE melhor que"],
+                    ["É CLARAMENTE melhor que", "!!"],
+                    ["é TÃO BOM que", "nem tinha chance."]]
+            ],
+            "no": [
+                ["Não.", "Nem fudendo.", "Sem chance!", "De jeito nenhum!", "Negativo.", "Jamais.", "Nah."],
+                [
+                    ["NÃO É melhor que"],
+                    ["É OBVIAMENTE PIOR que"],
+                    ["NEM TENTOU ser melhor que", "!"],
+                    ["É TÃO RUIM que", "nem precisou tentar."]
+                ]
+            ],
+            "same": [
+                ["Claro que não, já que"],
+                ["é a mesma coisa que"]
+            ]
+        },
 
 		"blog-homeTitle": "blogs!!",
         "blog-homeContent": [

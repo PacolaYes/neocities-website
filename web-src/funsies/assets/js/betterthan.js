@@ -4,25 +4,6 @@ const urlParams = new URLSearchParams(window.location.search);
 
 var betterThan = null
 var xySum = 0
-const responses = {
-    yes: [
-        ["Of Course!", "Yes!", "Duh.", "Affirmative!", "Absolutely!", "Yep.", "Yeah."],
-        [
-            ["IS better than", "!"],
-            ["IS OBVIOUSLY better than"],
-            ["IS CLEARLY better than", "!!"],
-            ["is SO GOOD that", "stood no chance."]]
-    ],
-    no: [
-        ["No.", "Nuh uh.", "No chance!", "No way!", "Negative.", "Nope.", "Nah."],
-        [
-            ["IS NOT better than"],
-            ["IS OBVIOUSLY WORSE than"],
-            ["DIDN'T EVEN TRY to be better than", "!"],
-            ["IS SO BAD that", "didn't need to try."]
-        ]
-    ]
-}
 var x = urlParams.get("is") || ""
 var y = urlParams.get("betterthan") || ""
 x = x && x.trim()
@@ -183,6 +164,45 @@ function handleLoading() {
     }
 }
 
+var betterthan_loaded = false
+
+async function showResults(lang) {
+    if (!betterthan_loaded) { return }
+
+    const result1 = document.getElementById("betterthan-result")
+    const result2 = document.getElementById("betterthan-resultp2")
+    const result3 = document.getElementById("betterthan-resultp3")
+    const responses = await getLanguageAttribute("betterthan-responses", lang)
+    let response
+    switch (betterThan) {
+        case true:
+            response = responses["yes"]
+
+            result1.innerText = response[0][Math.trunc(Math.random() * response[0].length)]
+            result2.innerText = response[1][xySum % response[1].length][0]
+            result3.innerText = response[1][xySum % response[1].length][1]
+            break
+        case false:
+            response = responses["no"]
+
+            result1.innerText = response[0][Math.trunc(Math.random() * response[0].length)]
+            result2.innerText = response[1][xySum % response[1].length][0]
+            result3.innerText = response[1][xySum % response[1].length][1]
+            break
+        case "same":
+            response = responses["same"]
+
+            result1.innerText = response[0][Math.trunc(Math.random() * response[0].length)]
+            result2.innerText = response[1][xySum % response[1].length][0]
+            result3.innerText = response[1][xySum % response[1].length][1]
+            break
+    }
+
+    if (result3.innerText && result3.innerText != "undefined") {
+        result3.style.display = null
+    }
+}
+
 async function betterthan_onLoad() {
     handleComparison()
 
@@ -213,36 +233,9 @@ async function betterthan_onLoad() {
     imgY.src = imgYURL
 
     // artificial loading baybee
-    setTimeout(() => {
-        const result1 = document.getElementById("betterthan-result")
-        const result2 = document.getElementById("betterthan-resultp2")
-        const result3 = document.getElementById("betterthan-resultp3")
-        let response
-        switch (betterThan) {
-            case true:
-                response = responses["yes"]
-
-                result1.innerText = response[0][Math.trunc(Math.random() * response[0].length)]
-                result2.innerText = response[1][xySum % response[1].length][0]
-                result3.innerText = response[1][xySum % response[1].length][1]
-                break
-            case false:
-                response = responses["no"]
-
-                result1.innerText = response[0][Math.trunc(Math.random() * response[0].length)]
-                result2.innerText = response[1][xySum % response[1].length][0]
-                result3.innerText = response[1][xySum % response[1].length][1]
-                break
-            case "same":
-                result1.innerText = "Of course not, as"
-                result2.innerText = "is the same as"
-                result3.innerText = "undefined"
-                break
-        }
-
-        if (result3.innerText && result3.innerText != "undefined") {
-            result3.style.display = null
-        }
+    betterthan_loaded = true
+    setTimeout(async () => {
+        await showResults()
 
         const resultDiv = document.getElementById("betterthan-resultDiv")
         resultDiv.style.display = null
@@ -255,3 +248,4 @@ async function betterthan_onLoad() {
 }
 
 document.addEventListener("DOMContentLoaded", betterthan_onLoad, false);
+language_set_events.push(showResults)

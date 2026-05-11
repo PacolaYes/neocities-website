@@ -14,8 +14,12 @@ var language_names = [
 	["portuguese", "Português"]
 ]
 
+// https://overflow.hostux.net/questions/14226803/wait-5-seconds-before-executing-next-line#47480429
+const delay = ms => new Promise(res => setTimeout(res, ms));
+
 var languages = {}
 var body_loaded = false
+var languages_loaded = false
 var lang_timeout = 0
 
 async function loadLanguage(name) {
@@ -48,13 +52,42 @@ async function loadLanguages() {
 			await loadLanguage(lang_list[0])
 		}
 	}
+	languages_loaded = true
 }
 
-function setLanguage(lang) {
+/**
+ * 
+ * @param {string} attr 
+ * @param {string?} lang
+ */
+async function getLanguageAttribute(attr, lang) {
+	while (!languages_loaded)
+		await delay()
+
+	if (!lang)
+		lang = getLocalStorageItem("savedLang", "english")
+	
+	return languages[lang][attr]
+}
+
+let language_set_events = []
+async function setLanguage(lang) {
 	if (!languages[lang]) {
-		console.log(languages[lang])
-		console.log(`Language ${lang} wasn't found.`)
-		return
+		let found = false
+		for (lang_list of language_names) {
+			if (lang_list[0] == lang) {
+				found = true
+				while (!languages[lang]) {
+					await delay()
+				}
+				break
+			}
+		}
+
+		if (!found) {
+			console.log(`Language ${lang} wasn't found and isn't real.`)
+			return
+		}
 	}
 
 	let language = languages[lang]
@@ -66,6 +99,10 @@ function setLanguage(lang) {
 		}
 	}
 	document.documentElement.lang = language.lang || "en"
+
+	for (func of language_set_events) {
+		func(lang)
+	}
 
 	window.localStorage.setItem("savedLang", lang)
 }
