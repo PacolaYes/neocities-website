@@ -1,0 +1,142 @@
+{
+    "portuguese": {
+        "lang": "pt-br",
+
+        "main-mainTitle": "página principal",
+        "main-mainContent": [
+            "opa! bem-vindo ao meu site!!",
+            "sonic indo tipo \"oii pessoa :D\"",
+            "aqui, neste cantinho da internet",
+            "você pode encontrar coisas que eu faço, e coisas que eu escrevo",
+            "mas eu ainda to trabalhando nele (as vezes) :P",
+            "e se certifique de ver as outras páginas!!",
+            "se você quiser, pelo menos",
+            "CUIDADO DISPOSITIVOS MÓVEIS!!",
+            "o site pode acabar te mordeno D:",
+            "pelo menos foi o que me falaram!",
+            [ "aé, aqui q tá o meu ", "guestbook", "!!" ]
+        ],
+
+        "main-charTitle": "meu personagem",
+        "main-char": "insira personagem aqui :)",
+
+        "main-thingTitle": "coisa pac do momento",
+        "main-thingContent": [
+            "tu devia jogar VVVVVV",
+            "é bem legal"
+        ],
+
+		"about-mainTitle": "sobre mim! :D",
+        "about-mainContent": [
+            "eu sou a pacola, mas tu pode me chamar só de pac também!",
+            "so brasilera, vo por ela/dela (transfem!), e também gosto de sonic e programar, eu acho",
+            "sei lá oq falar sobre mim, pra falar a verdade",
+            "q q eu faço da vida?",
+            "nada!! ...que é útil mesmo",
+            "tirando isso, eu já::",
+            [
+                "fiz uns modzinho estupido de srb2, da pra encontra alguns deles na página de projetos!",
+                [
+                    "consegui dois récordes mundiais de ",
+                    "Sonic Blast ",
+                    "(ambas categorias do sonic!), q eu to muito orgulhosa :D"
+                ],
+                "um pouco de arte, nada xique",
+                "alguns códigos, as vezes, num deve ser bom",
+                "procastinei um monte"
+            ],
+            "... já mencionei que gosto de sonic???"
+        ],
+        
+        "findme-title": "redes assustadoras",
+        "findme-intro": "oe, esse aqui é os lugar treco ou sei la oq q chama eles que você provavelmente pode me encontrar!!",
+        "findme-youtube": [
+            [
+                "logo do youtube",
+                "youtube"
+            ],
+            "vídeos estúpidos"
+        ],
+        "findme-bsky": [
+            [
+                "logo do bluesky",
+                "bluesky"
+            ],
+            "num vejo muito não"
+        ],
+        "findme-crosstalk": [
+            [
+                "logo do crosstalk",
+                "crosstalk"
+            ],
+            "msn"
+        ],
+        "findme-email": [
+            [
+                "logo do e-mail",
+                "e-mail"
+            ],
+            "profissional"
+        ],
+
+        "projects-webTitle": "as bobeira das internets",
+        "projects-webContent": [
+            "OBS: TODO link nessa seção NÃO abrirá uma nova página.",
+
+            "Seria (X) melhor que (Y)?",
+            [ "uma cópia descarada do tal do ", "\"better than ze2\"", " do lemerks :P" ],
+            [ "seria o ", "seu", " amado X ", "OBJETIVAMENTE", " melhor que o ", "obviamente", " idolatrado Y?" ],
+            [ "bem, só tem uma maneira de descobrir! ", "...que é clicando o link" ]
+        ],
+
+		"projects-srb2Title": "os projetos (do srb2)",
+		"projects-srb2Other": [ "alguns dos meus mods podem ser achados no meu ", "github", " também, mas eles provavelmente vão estar abandonados ou só inacabados :P" ],
+        "projects-blastHUD": [
+            "gif mostrando o title card do Sonic Blast no SRB2",
+            [
+                "HUD do Sonic Blast",
+                "Um mod que parece simples, troca o hud do SRB2 com o do Sonic Blast."
+            ]
+        ],
+        "projects-sunky": [
+            "gif mostrando o Sunky caindo de uma plataforma na Greenflower Zone act 1",
+            [
+                "Sunky",
+                "adiciona o Sunky, versão atual é pra ser o mais perto que eu conseguia ao Sunky the Game, talvez seja atualizado um dia, ou então eu espero!"
+            ]
+        ],
+        "projects-smwluigi": [
+            "gif mostrando o Luigi do SMW dando carpado, correndo and escorregando",
+            [
+                "SMW Luigi",
+                "tenta adicionar o Luigi e uns outros treco do Super Mario World.",
+                "Ainda sendo feito, as vezes. Mas dá pra ti pegar umas versão, as vezes também."
+            ]
+        ],
+
+        "betterthan-title": [
+            "seria ",
+            " melhor que ",
+            "?"
+        ],
+        "betterthan-is": "seria ",
+        "betterthan-betterthan": "melhor que ",
+
+		"blog-homeTitle": "blogs!!",
+        "blog-homeContent": [
+            "aqui é onde eu faço os treco de \"blog\"",
+            "sei lá se é um blog ou não, eu chamario de algo tipo:",
+            "\"lugar na qual eu posso ou não as vezes escrever algo mas a maior parte do tempo deve ser um não já que eu provavelmente não vou escrever isso mas talvez aconteça possivelmente\"",
+            "sei lá oq mais escrever aqui, ve o treco na direita pros blogs",
+            "se tive algum :P"
+        ],
+        "blog-listTitle": "blogs listados",
+
+        "home": "página principal!",
+        "about-me": "sobre mim!",
+        "find-me": "me encontre",
+        "projects": "meus projetos",
+        "blog-home": "treco do blog",
+        "change-theme": "mude de tema"
+	}
+}
