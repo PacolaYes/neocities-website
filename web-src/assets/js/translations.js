@@ -6,8 +6,15 @@
 	like REALLY janky
 */
 
+/* 
+	[ "json file", "dropdown choice name" ]
+*/
+var language_names = [
+	["english", "English"],
+	["portuguese", "Português"]
+]
+
 var languages = {}
-var language_names = ["english", "portuguese"]
 var body_loaded = false
 var lang_timeout = 0
 
@@ -29,7 +36,6 @@ async function loadLanguages() {
 
 	lang_timeout = setTimeout(() => {
 		if (body_loaded) {
-			window.localStorage.setItem("savedLang", "portuguese")
 			setLanguage(
 				getLocalStorageItem("savedLang", "english")
 			)
@@ -37,9 +43,9 @@ async function loadLanguages() {
 		}
 	})
 	
-	for (lang of language_names) {
-		if (lang != cur_lang) {
-			await loadLanguage(lang)
+	for (lang_list of language_names) {
+		if (lang_list[0] != cur_lang) {
+			await loadLanguage(lang_list[0])
 		}
 	}
 }
@@ -126,15 +132,22 @@ function changeTextRecursive(node, values, debug) {
 	return recurse
 }
 
-function switchLang() { // switch between english and portuguese, since thats the only languages :þ
-	let savedLang = getLocalStorageItem("savedLang", "english")
-	if (savedLang == "english") {
-		setLanguage("portuguese")
-	} else {
-		setLanguage("english")
-	}
-}
+document.addEventListener("DOMContentLoaded", () => {
+	body_loaded = true
 
-document.addEventListener("DOMContentLoaded", () => (body_loaded = true), false);
+	var language_selector = document.getElementById("language-selector")
+	let index = 0
+	for (lang_list of language_names) {
+		let option = document.createElement("option")
+		option.value = lang_list[0]
+		option.appendChild(document.createTextNode(lang_list[1]))
+
+		language_selector.add(option)
+		if (getLocalStorageItem("savedLang", "english") == lang_list[0])
+			language_selector.value = lang_list[0]
+		
+	}
+	language_selector.addEventListener("change", (event) => setLanguage(event.target.value))
+}, false);
 
 loadLanguages()
