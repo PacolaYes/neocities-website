@@ -20,7 +20,7 @@ const delay = ms => new Promise(res => setTimeout(res, ms));
 var languages = {}
 var body_loaded = false
 var languages_loaded = false
-var lang_timeout = 0
+var lang_interval = 0
 
 async function loadLanguage(name) {
 	await fetch(`${rootPath}assets/lang/${name}.json`).then(async (response) => {
@@ -38,12 +38,12 @@ async function loadLanguages() {
 
 	await loadLanguage(cur_lang)
 
-	lang_timeout = setTimeout(() => {
+	lang_interval = setInterval(() => {
 		if (body_loaded) {
 			setLanguage(
 				getLocalStorageItem("savedLang", "english")
 			)
-			clearTimeout(lang_timeout)
+			clearInterval(lang_interval)
 		}
 	})
 	

@@ -155,9 +155,10 @@ function handleComparison() {
 }
 
 var loadingNum = 0
-function handleLoading() {
+async function handleLoading() {
+    const computing = await getLanguageAttribute("betterthan-computing")
     const loading = document.getElementById("betterthan-loading")
-    loading.innerText = "Computing" + ".".repeat(loadingNum)
+    loading.innerText = computing + ".".repeat(loadingNum)
 
     if (loadingNum++ >= 3) {
         loadingNum = 0
@@ -210,7 +211,7 @@ async function betterthan_onLoad() {
         const loading = document.getElementById("betterthan-loading")
         loading.style.display = null
 
-        handleLoading()
+        await handleLoading()
         var loadingID = setInterval(handleLoading, 1000)
     }
 
