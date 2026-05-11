@@ -15,6 +15,7 @@
     <link rel="shortcut icon" href="../assets/img/favicon.png" type="image/x-icon">
 
     <script src="../assets/js/base.js" data-root="../"></script>
+    <script src="../assets/js/translations.js"></script>
     <script src="../assets/js/blogList.js" id="blogScript" data-blogPath=""></script>
   </head>
   
@@ -28,13 +29,13 @@
         </div>
       </div>
 
-      <button class="themeSwitch" onclick="switchTheme()"><img src="../assets/img/change theme.png" alt="change theme"></button>
+      <button class="themeSwitch" onclick="switchTheme()" data-translationID="change-theme"><img src="../assets/img/change theme.png" alt="change theme"></button>
     </nav>
 
     <main class="glass" id="mainWindow">
-      <p class="glassTitle">blogs!!</p>
+      <p class="glassTitle" data-translationID="blog-homeTitle">blogs!!</p>
 
-      <div class="mainWindowContent">
+      <div class="mainWindowContent" data-translationID="blog-homeContent">
         <p>here's where i do the "blog" stuff</p> <br>
         <p>not sure if it's actually a blog, i'd call it something like:</p>
         
@@ -50,7 +51,7 @@
     </main>
 
     <nav class="glass" id="blogList">
-      <p class="glassTitle">listed blogs</p>
+      <p class="glassTitle" data-translationID="blog-listTitle">listed blogs</p>
 
       <div class="mainWindowContent">
         <div id="blogLinks"></div>

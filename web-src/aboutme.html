@@ -15,6 +15,7 @@
     <link rel="shortcut icon" href="assets/img/favicon.png" type="image/x-icon">
 
     <script src="assets/js/base.js"></script>
+    <script src="assets/js/translations.js"></script>
   </head>
   
   <body class="centerGlass">
@@ -27,19 +28,21 @@
         </div>
       </div>
 
-      <button class="themeSwitch" onclick="switchTheme()"><img src="assets/img/change theme.png" alt="change theme"></button>
+      <button class="themeSwitch" onclick="switchTheme()" data-translationID="change-theme"><img src="assets/img/change theme.png" alt="change theme"></button>
     </nav>
 
     <main class="glass" id="mainWindow">
-      <p class="glassTitle">about me!</p>
+      <p class="glassTitle" data-translationID="about-mainTitle">about me! :D</p>
 
-      <div class="mainWindowContent">
+      <div class="mainWindowContent" data-translationID="about-mainContent">
         <p>i'm pacola, but u can call me just pac too!</p>
         <p>i be brazillian, go by she/her (transfem!), and also like sonic & programming, i think</p>
         <p>idk much to say about me, really</p>
 
         <br>
 
+        <p>what do i do with my life?</p>
+        <p>nothing!! ...that's really useful</p>
         <p>other than that, i've:</p>
         <ul id="aboutmeList">
           <li>made some stupid lil' ass srb2 mods, ya can find some of 'em in the projects page!</li>

@@ -15,6 +15,7 @@
     <link rel="shortcut icon" href="assets/img/favicon.png" type="image/x-icon">
 
     <script src="assets/js/base.js"></script>
+    <script src="assets/js/translations.js"></script>
   </head>
   
   <body class="centerGlass">
@@ -27,14 +28,14 @@
         </div>
       </div>
 
-      <button class="themeSwitch" onclick="switchTheme()"><img src="assets/img/change theme.png" alt="change theme"></button>
+      <button class="themeSwitch" onclick="switchTheme()" data-translationID="change-theme"><img src="assets/img/change theme.png" alt="change theme"></button>
     </nav>
     
     <main class="flexColumn" id="glassMain2TheSequel">
       <div class="glass">
-        <p class="glassTitle">the web funsies</p>
+        <p class="glassTitle" data-translationID="projects-webTitle">the web funsies</p>
 
-        <div class="mainWindowContent">
+        <div class="mainWindowContent" data-translationID="projects-webContent">
           <p>NOTE: EVERY link in this section will NOT open up a new page.</p> <br>
 
           <a href="/funsies/betterthan.html"><h2>Is (X) better than (Y)?</h2></a> <br>
@@ -45,10 +46,10 @@
       </div>
 
       <div class="glass">
-        <p class="glassTitle">da (srb2) projects</p>
+        <p class="glassTitle" data-translationID="projects-srb2Title">da (srb2) projects</p>
 
         <div class="mainWindowContent">
-            <div class="imageDisplay" id="blastHUDIMG">
+            <div class="imageDisplay" data-translationID="projects-blastHUD">
                 <img src="assets/img/projects/blast hud.gif" alt="gif showcasing Sonic Blast's title card in SRB2">
 
                 <div id="blastHUDContent">
@@ -62,7 +63,7 @@
                 </div>
             </div>
 
-            <div class="imageDisplay" id="sunkyIMG">
+            <div class="imageDisplay" data-translationID="projects-sunky">
                 <img src="assets/img/projects/sunky.gif" alt="gif showcasing Sunky falling off an edge in Greenflower Zone act 1">
 
                 <div id="sunkyContent">
@@ -76,7 +77,7 @@
                 </div>
             </div>
 
-            <div class="imageDisplay" id="smwLuigiIMG">
+            <div class="imageDisplay" data-translationID="projects-smwluigi">
                 <img src="assets/img/projects/smw luigi.gif" alt="gif showcasing SMW Luigi spin-jumping, running and sliding">
 
                 <div id="smwLuigiContent">
@@ -91,7 +92,7 @@
                 </div>
             </div>
 
-            <p>some other mods can be found at my <a href="https://github.com/PacolaYes" target="_blank" rel="noopener noreferrer">github</a> too, though they may be either abandoned or just unfinished :P</p>
+            <p data-translationID="projects-srb2Other">some other mods can be found at my <a href="https://github.com/PacolaYes" target="_blank" rel="noopener noreferrer">github</a> too, though they may be either abandoned or just unfinished :P</p>
         </div>
       </div>
     </main>

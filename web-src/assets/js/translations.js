@@ -161,6 +161,7 @@ async function loadLanguage(name) {
 
 async function loadLanguages() {
 	let cur_lang = getLocalStorageItem("savedLang", "english")
+
 	await loadLanguage(cur_lang)
 	for (lang of language_names) {
 		if (lang != cur_lang) {
@@ -183,6 +184,8 @@ function setLanguage(lang) {
 			changeTextRecursive(element, language[translationID])
 		}
 	}
+	document.documentElement.lang = language.lang || "en"
+
 	window.localStorage.setItem("savedLang", lang)
 }
 
@@ -192,24 +195,60 @@ function setLanguage(lang) {
  * @param {*} values 
  * @param {number} recurse 
  */
-function changeTextRecursive(node, values, recurse=0) {
+function changeTextRecursive(node, values, debug) {
 	if (typeof values != "object") {
 		values = [values]
 	}
 
+	if (node.childNodes.length <= 0) { return 0 }
+
+	let recurse = 0
 	for (child_node of node.childNodes) {
 		let value = values[Math.min(recurse, values.length-1)]
+		let add_recurse = false
+
+		if (debug) {
+			debugger;
+		}
+
 		switch (child_node.nodeType) {
 			case Node.ELEMENT_NODE:
-				recurse = changeTextRecursive(child_node, value, recurse)
+				if (Boolean(child_node.getAttribute("data-ignoreTranslation"))) {
+					continue
+				}
+				
+				switch (child_node.nodeName) {
+					case "IMG":
+						child_node.alt = value
+						add_recurse = true
+						break
+					case "BR": break
+					default:
+						if (child_node.nodeType) {
+							changeTextRecursive(child_node, value, debug)
+							add_recurse = true
+						}
+						break
+				}
 				break
 			case Node.TEXT_NODE:
-				child_node.nodeValue = value
+				if (child_node.nodeValue.trim() != "") {
+					add_recurse = true
+					child_node.nodeValue = value
+				}
 				break
 		}
-		recurse += 1;
+
+		if (add_recurse) {
+			recurse += 1;
+		}
+		if (debug) {
+			console.log(`add_recurse ${recurse}`)
+		}
 	}
-	return recurse-1
+	if (debug)
+		console.log(`end value ${recurse}`)
+	return recurse
 }
 
 function switchLang() { // switch between english and portuguese, since thats the only languages :þ
@@ -219,9 +258,6 @@ function switchLang() { // switch between english and portuguese, since thats th
 	} else {
 		setLanguage("english")
 	}
-
-	document.getElementById("coolLinks").innerHTML = ""
-	addLinks()
 }
 
 document.addEventListener("DOMContentLoaded", () => (body_loaded = true), false);

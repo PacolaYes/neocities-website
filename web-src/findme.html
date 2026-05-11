@@ -14,6 +14,7 @@
     <link rel="shortcut icon" href="assets/img/favicon.png" type="image/x-icon">
 
     <script src="assets/js/base.js"></script>
+    <script src="assets/js/translations.js"></script>
   </head>
   
   <body>
@@ -27,18 +28,18 @@
           </div>
         </div>
 
-        <button class="themeSwitch" onclick="switchTheme()"><img src="assets/img/change theme.png" alt="change theme"></button>
+        <button class="themeSwitch" onclick="switchTheme()" data-translationID="change-theme"><img src="assets/img/change theme.png" alt="change theme"></button>
       </div>
 
       <main>
         <div class="glass" id="mainWindow">
-          <p class="glassTitle">scary medias</p>
+          <p class="glassTitle" data-translationID="findme-title">scary medias</p>
 
           <div class="mainWindowContent">
-            <p>hrlo, this is place thingies or whatevr they're called wher you can probably find me!!</p> <br>
+            <p data-translationID="findme-intro">hrlo, this is place thingies or whatevr they're called wher you can probably find me!!</p> <br>
 
             <div class="socialMedia_display">
-              <div class="flexColumn">
+              <div class="flexColumn" data-translationID="findme-youtube">
                 <a href="https://www.youtube.com/@pacola444" target="_blank" rel="noopener noreferrer">
                   <img src="assets/img/social-medias/youtube.png" alt="youtube logo" height="64">
                   <p style="text-align: center;">youtube</p>
@@ -46,7 +47,7 @@
                 <p>stupid videos</p>
               </div>
 
-              <div class="flexColumn">
+              <div class="flexColumn" data-translationID="findme-bsky">
                 <a href="https://bsky.app/profile/pacola444.neocities.org" target="_blank" rel="noopener noreferrer">
                   <img src="assets/img/social-medias/bsky.png" alt="bluesky logo" height="64">
                   <p style="text-align: center;">bluesky</p>
@@ -54,7 +55,7 @@
                 <p>i don't check it a lot</p>
               </div>
 
-              <div class="flexColumn">
+              <div class="flexColumn" data-translationID="findme-crosstalk">
                 <a href="https://crosstalk.im/profile/+PacolaYes" target="_blank" rel="noopener noreferrer">
                   <img src="assets/img/social-medias/crosstalk.png" alt="crosstalk logo" height="64">
                   <p style="text-align: center;">crosstalk</p>
@@ -62,7 +63,7 @@
                 <p>msn</p>
               </div>
 
-              <div class="flexColumn">
+              <div class="flexColumn" data-translationID="findme-email">
                 <a href="mailto:pacola444@proton.me">
                   <!-- my favorite social media -->
                   <img src="assets/img/social-medias/email.png" alt="email logo" height="64">
