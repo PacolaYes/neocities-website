@@ -12,7 +12,8 @@
 
     <link rel="shortcut icon" href="assets/img/favicon.png" type="image/x-icon">
 
-    <script src="assets/js/base.js" id="baseScript"></script>
+    <script src="assets/js/base.js"></script>
+    <script src="assets/js/translations.js"></script>
   </head>
   
   <body class="centerGlass">
@@ -25,14 +26,15 @@
         </div>
       </div>
 
-      <button class="themeSwitch" onclick="switchTheme()"><img src="assets/img/change theme.png" alt="change theme"></button>
+      <button class="themeSwitch" onclick="switchTheme()" data-translationID="change-theme"><img src="assets/img/change theme.png" alt="change theme"></button>
+      <select name="language" id="language-selector""></select>
     </nav>
 
     <main class="flexColumn">
       <div class="glass" id="mainWindow">
-        <p class="glassTitle">main page</p>
+        <p class="glassTitle" data-translationID="main-mainTitle">main page</p>
 
-        <div class="mainWindowContent">
+        <div class="mainWindowContent" data-translationID="main-mainContent">
           <h1>hey! welcom 2 my website!!</h1> <br>
 
           <img id="sonicHi" src="assets/img/index/sonic going hiiii.png" alt='sonic going like "hii person :D"'>
@@ -55,17 +57,17 @@
 
     <div class="flexColumn">
       <div class="glass" id="characterWindow">
-        <p class="glassTitle">my character</p>
+        <p class="glassTitle" data-translationID="main-charTitle">my character</p>
 
         <div class="mainWindowContent">
-          <img src="assets/img/index/insertchar.gif" alt="insert char here :)" id="insertChar">
+          <img src="assets/img/index/insertchar.gif" alt="insert char here :)" id="insertChar" data-translationID="main-char">
         </div>
       </div>
 
       <div class="glass" id="pacThing">
-        <p class="glassTitle">pac thing of the time</p>
+        <p class="glassTitle" data-translationID="main-thingTitle">pac thing of the time</p>
 
-          <div class="mainWindowContent">
+          <div class="mainWindowContent" data-translationID="main-thingContent">
             <p>you should play VVVVVV</p>
             <p>it's very cool</p>
           </div>
