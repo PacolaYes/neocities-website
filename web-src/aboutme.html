@@ -1,21 +1,39 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="light">
     <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>stuff about me</title>
 
-	<link type="stylesheet" href="assets/css/normalize.css">
-	<link type="stylesheet" href="assets/css/aboutme.css">
+	<link rel="stylesheet" href="assets/css/normalize.css">
+	<link rel="stylesheet" href="assets/css/aboutme.css">
 
+	<script src="assets/js/base.js"></script>
 	<script src="assets/js/aboutme.js"></script>
     </head>
 
     <body>
 	<iframe id="lastfm-data" style="display: none;" src="https://pacolayes.github.io/neocities-widgets/lastfm.html?user=PacolaYes"></iframe>
 
-	<div class="window">
-	    <p>hey!</p>
+	<div class="mainDiv" style="width: max-content;">
+	    <nav class="window aboutme-topNav">
+		<div id="coolLinks"></div>
+	    </nav>
+
+	    <main class="window aboutme-main">
+		<p>lorem ipsum, sit dolor amet, aosidjaksldjaklsdfjklasjjskdlgjklsdahgjlkasdhgjklasdhgjklasdhgjklasdhgkljahgf</p>
+
+		<div id="lastfm-widget" style="display: none;">
+		    <p id="lastfm-status"></p>
+
+			<img id="lastfm-art" alt="Cover Art">
+			<div id="lastfm-widget-text">
+			    <p id="lastfm-music"></p>
+			    <p id="lastfm-album"></p>
+			    <p id="lastfm-author"></p>
+			</div>
+		</div>
+	    </main>
 	</div>
     </body>
 </html>
