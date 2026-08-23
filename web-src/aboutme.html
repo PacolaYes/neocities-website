@@ -5,6 +5,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>stuff about me</title>
 
+	<link rel="shortcut icon" href="assets/img/amy.png" type="image/x-icon">
 	<link rel="stylesheet" href="assets/css/normalize.css">
 	<link rel="stylesheet" href="assets/css/aboutme.css">
 
@@ -14,8 +15,9 @@
 
     <body>
 	<iframe id="lastfm-data" style="display: none;" src="https://pacolayes.github.io/neocities-widgets/lastfm.html?user=PacolaYes"></iframe>
+	<iframe id="statuscafe-data" style="display: none;" src="https://pacolayes.github.io/neocities-widgets/statuscafe.html?user=pacola"></iframe>
 
-	<div class="mainDiv" style="width: max-content;">
+	<div class="mainDiv">
 	    <nav class="window aboutme-topNav">
 		<div id="coolLinks"></div>
 	    </nav>
@@ -23,16 +25,26 @@
 	    <main class="window aboutme-main">
 		<p>lorem ipsum, sit dolor amet, aosidjaksldjaklsdfjklasjjskdlgjklsdahgjlkasdhgjklasdhgjklasdhgjklasdhgkljahgf</p>
 
+		<div class="aboutme-left">
+		    <img class="aboutme-image" src="assets/img/amy.png">
+
+		    <div id="statuscafe-widget" style="display: none;">
+			<p id="statuscafe-text" class="tiny-text">piss</p>
+			<p id="statuscafe-time" class="tinyer-text">12 years ago</p>
+		    </div>
+		</div>
+
 		<div id="lastfm-widget" style="display: none;">
 		    <p id="lastfm-status"></p>
 
-			<img id="lastfm-art" alt="Cover Art">
-			<div id="lastfm-widget-text">
-			    <p id="lastfm-music"></p>
-			    <p id="lastfm-album"></p>
-			    <p id="lastfm-author"></p>
-			</div>
+		    <img id="lastfm-art" alt="Cover Art">
+		    <div id="lastfm-widget-text">
+			<p id="lastfm-music"></p>
+			<p id="lastfm-album" class="tinyer-text"></p>
+			<p id="lastfm-author" class="tinyer-text"></p>
+		    </div>
 		</div>
+		<p>hey, it's me! paragraph!</p>
 	    </main>
 	</div>
     </body>

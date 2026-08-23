@@ -20,6 +20,8 @@
     --nav-bg-color: linear-gradient(180deg, #b5b5b5 0%, #b5b5b5 5%, #484848 10%, #484848 45%, #101010 55%);
     --nav-text-color: white;
     --nav-selected-color: #999;
+
+    --tiny-text-color: gray;
 }
 
 html, body {
@@ -40,7 +42,7 @@ body {
 }
 
 p {
-    word-break: break-all;
+    word-break: break-word;
 }
 
 .mainDiv {
@@ -51,7 +53,7 @@ p {
 
 .window {
     width: fit-content;
-    padding-inline: .5rem;
+    padding: .5rem;
 
     background-color: var(--window-bg-color);
 
@@ -61,6 +63,7 @@ p {
 
 .aboutme-main {
     padding-top: 1em;
+    overflow: auto;
 }
 
 .aboutme-topNav {
@@ -100,6 +103,22 @@ p {
     border-radius: .35rem;
 }
 
+.aboutme-left {
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+    flex: 1 1 auto;
+
+    width: 50%;
+    float: left;
+}
+
+.aboutme-image {
+    max-width: 100%;
+    border: var(--outline-color) solid .3rem;
+    border-radius: .3rem;
+}
+
 #lastfm-widget {
     display: grid;
     grid-template:
@@ -108,23 +127,22 @@ p {
 	/ max-content 1fr;
 }
 
-#lastfm-widget img {
-    height: 0;
-    min-height: 100%;
-    object-fit: contain;
-    flex-shrink: 5;
-}
-
 #lastfm-status {
     grid-area: status;
 }
 
 #lastfm-art {
     grid-area: cover;
+
+    height: 0;
+    min-height: 100%;
+    object-fit: contain;
+    margin-right: .2em;
 }
 
 #lastfm-widget-text {
     grid-area: info;
+    overflow: auto;
 }
 
 #lastfm-widget p {
@@ -139,4 +157,19 @@ p {
 #lastfm-status {
     font-size: 1.8em;
     font-weight: bolder;
+}
+
+.tiny-text {
+    font-size: 0.8em;
+    margin: .5em 0;
+}
+
+.tinyer-text {
+    font-size: 0.6em;
+    color: var(--tiny-text-color);
+    margin: 0;
+}
+
+#statuscafe-time {
+    margin-left: .5rem;
 }

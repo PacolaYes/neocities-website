@@ -33,37 +33,34 @@ function handleLastFMData(data) {
 
     const widget = document.getElementById("lastfm-widget")
     widget.style.display = null;
+}
 
-    console.log(data)
+function handleStatusCafeData(data) {
+    const text = document.getElementById("statuscafe-text")
+    text.innerText = `— ${data?.["face"]} ${data?.["content"]}`;
+
+    const time = document.getElementById("statuscafe-time")
+    time.innerText = `- ${data?.["timeAgo"]}`
+
+    const widget = document.getElementById("statuscafe-widget");
+    widget.style.display = null;
 }
 
 document.addEventListener("DOMContentLoaded", () => {
     // handle out events
     const lastfm_iframe = document.getElementById("lastfm-data")
+    const statuscafe_iframe = document.getElementById("statuscafe-data")
 
     window.addEventListener("message", (event) => {
 	switch (event.source) {
 	    case lastfm_iframe.contentWindow:
 		handleLastFMData(event.data);
 		break;
+	    case statuscafe_iframe.contentWindow:
+		handleStatusCafeData(event.data);
+		break;
 	    default:
 		break;
 	}
     })
-
-    // handle out resizing the last.fm cover
-    /*const cover = document.getElementById("lastfm-art")
-    const widget_text = document.getElementById("lastfm-widget-text")
-
-    const resize_observer = new ResizeObserver(() => {
-	cover.style.height = "0"
-	
-	let current_height = widget_text.offsetHeight
-	while (Math.abs(current_height - widget_text.offsetHeight) > 1)
-	    current_height += (widget_text.offsetHeight - current_height) / 2
-	
-	cover.style.height = `${current_height}px`
-    })
-
-    resize_observer.observe(document.getElementById("lastfm-widget"))*/
 })
