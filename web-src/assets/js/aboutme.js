@@ -40,7 +40,7 @@ function handleStatusCafeData(data) {
     text.innerText = `— ${data?.["face"]} ${data?.["content"]}`;
 
     const time = document.getElementById("statuscafe-time")
-    time.innerText = `- ${data?.["timeAgo"]}`
+    time.innerText = `- ${data?.["timeAgo"]} - provided by `
 
     const widget = document.getElementById("statuscafe-widget");
     widget.style.display = null;

@@ -62,7 +62,7 @@ p {
 }
 
 .aboutme-main {
-    padding-top: 1em;
+    padding-top: 2rem;
     overflow: auto;
 }
 
@@ -111,6 +111,7 @@ p {
 
     width: 50%;
     float: left;
+    margin: .5em 0;
 }
 
 .aboutme-image {
@@ -170,6 +171,11 @@ p {
     margin: 0;
 }
 
+#statuscafe-widget {
+    align-self: start;
+}
+
 #statuscafe-time {
+    display: inline-block;
     margin-left: .5rem;
 }
