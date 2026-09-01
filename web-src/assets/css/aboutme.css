@@ -1,0 +1,181 @@
+
+/* shantell-sans-regular - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Shantell Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: url('../fonts/shantell-sans-v13-latin-regular.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+:root {
+    --window-bg-color: white;
+    --outline-color: black;
+
+    --nav-bg-color: linear-gradient(180deg, #b5b5b5 0%, #b5b5b5 5%, #484848 10%, #484848 45%, #101010 55%);
+    --nav-text-color: white;
+    --nav-selected-color: #999;
+
+    --tiny-text-color: gray;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+
+    font-family: "Shantell Sans", cursive;
+    font-size: 18px;
+    font-variation-settings:
+        "BNCE" -70,
+        "INFM" 100,
+        "SPAC" 2;
+}
+
+p {
+    word-break: break-word;
+}
+
+.mainDiv {
+    max-width: 60%;
+    height: fit-content;
+    margin-top: 2rem;
+}
+
+.window {
+    width: fit-content;
+    padding: .5rem;
+
+    background-color: var(--window-bg-color);
+
+    border: 4px solid var(--outline-color);
+    border-radius: 1rem;
+}
+
+.aboutme-main {
+    padding-top: 2rem;
+    overflow: auto;
+}
+
+.aboutme-topNav {
+    width: 95%;
+    background: var(--nav-bg-color);
+    color: var(--nav-text-color);
+
+    position: relative;
+
+    padding: 0;
+    left: 50%;
+    translate: -50% 50%;
+    border-width: 3px;
+    border-radius: .4rem;
+}
+
+.aboutme-topNav a {
+    color: var(--nav-text-color);
+    text-decoration: none;
+}
+
+#coolLinks {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+#coolLinks a {
+    padding: .5em 0;
+    height: 100%;
+    text-align: center;
+    flex-grow: 1;
+}
+
+#coolLinks a:hover {
+    background-color: var(--nav-selected-color);
+    color: black;
+    border-radius: .35rem;
+}
+
+.aboutme-left {
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+    flex: 1 1 auto;
+
+    width: 50%;
+    float: left;
+    margin: .5em 0;
+}
+
+.aboutme-image {
+    max-width: 100%;
+    border: var(--outline-color) solid .3rem;
+    border-radius: .3rem;
+}
+
+#lastfm-widget {
+    display: grid;
+    grid-template:
+	"status status"
+	"cover info"
+	/ max-content 1fr;
+}
+
+#lastfm-status {
+    grid-area: status;
+}
+
+#lastfm-art {
+    grid-area: cover;
+
+    height: 0;
+    min-height: 100%;
+    object-fit: contain;
+    margin-right: .2em;
+}
+
+#lastfm-widget-text {
+    grid-area: info;
+    overflow: auto;
+}
+
+#lastfm-widget p {
+    margin: 0;
+}
+
+#lastfm-music {
+    font-size: 1.3em;
+    font-weight: bold;
+}
+
+#lastfm-status {
+    font-size: 1.8em;
+    font-weight: bolder;
+}
+
+.tiny-text {
+    font-size: 0.8em;
+    margin: .5em 0;
+}
+
+.tinyer-text {
+    font-size: 0.6em;
+    color: var(--tiny-text-color);
+    margin: 0;
+}
+
+#statuscafe-widget {
+    align-self: start;
+}
+
+#statuscafe-time {
+    display: inline-block;
+    margin-left: .5rem;
+}
